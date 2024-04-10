@@ -1,0 +1,31 @@
+server:
+  port: 8093
+
+
+spring:
+  application:
+    name: service-brad
+
+
+  security:
+    oauth2:
+      client:
+        registration:
+          bradesco:
+            client-id: "db36835d-3727-49c4-beac-65278ba145a9"
+            client-secret: "da825c97-56f6-487e-bea7-06d7ff878ed1"
+            authorization-grant-type: client_credentials
+            scope: read
+            client-authentication-method: client_secret_basic
+        provider:
+          bradesco:
+            token-uri: https://qrpix-h.bradesco.com.br/oauth/token
+
+api:
+  url:
+    bradesco-pix: https://qrpix-h.bradesco.com.br/v2/
+  aws:
+    secret-name: bradesco-credenciais
+    region: us-east-2
+  configuration:
+    timeout: 30
